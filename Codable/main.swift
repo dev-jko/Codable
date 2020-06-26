@@ -8,17 +8,6 @@
 
 import Foundation
 
-/*
-{
-  "name": "경복궁",
-  "foundingYear": 1395,
-  "location": {
-                "latitude": 37.579578,
-                "longitutd": 126.977026
-              }
-}
-*/
-
 
 let landmark: Landmark = Landmark(name: "경복궁",
                                   foundingYear: 1395,
@@ -47,3 +36,14 @@ let landmarkFromJSON: Landmark = try decoder.decode(Landmark.self, from: jsonDat
 print(landmarkFromJSON)
 
 
+
+
+let landmark2: Landmark2 = Landmark2(name: "경복궁",
+                                     foundingYear: 1395,
+                                     location: Coordinate(latitude: 37.579578, longitude: 126.977026))
+
+let jsonDataFromLandmark2: Data = try encoder.encode(landmark2)
+
+if let jsonString: String = String(data: jsonDataFromLandmark2, encoding: .utf8) {
+    print(jsonString)
+}
